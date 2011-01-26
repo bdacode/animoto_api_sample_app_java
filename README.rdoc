@@ -38,7 +38,7 @@ http://java-workflow-sample.animoto.com
 
 == More Information
 
-* The Animoto API - http://animoto.com/developer/api
+* The Animoto API - http://api-documentation.animoto.com/index.html
 * The Animoto Java API Client - http://github.com/animoto/api_client_java
 
 == Copyright Information
