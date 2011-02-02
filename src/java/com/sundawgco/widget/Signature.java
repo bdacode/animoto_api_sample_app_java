@@ -13,13 +13,14 @@ import java.math.BigInteger;
  */
 public class Signature {
 
-  public static String generate(String partnerId, String partnerSecret, String appId, String nonce) 
+  public static String generate(String partnerId, String partnerSecret, String appId, String nonce, String unixTimestamp) 
     throws NoSuchAlgorithmException {
     HashMap<String, String> args = new HashMap<String, String>();
     args.put("appId", appId);
     args.put("nonce", nonce);
     args.put("partnerId", partnerId);
     args.put("partnerSecret", partnerSecret);
+    args.put("timestamp", unixTimestamp);
     return generateHash(args);
   }
 

@@ -39,7 +39,8 @@ class HomeController {
    */
   def widget = {
     def nonce = System.currentTimeMillis()
-    def signature = Signature.generate(config.widget.partnerId, config.widget.partnerSecret, config.widget.appId, nonce.toString())
+    def unixTime = System.currentTimeMillis() / 1000L
+    def signature = Signature.generate(config.widget.partnerId, config.widget.partnerSecret, config.widget.appId, nonce.toString(), unixTime.toString())
     params.put("signature", signature)
     params.put("partnerId", config.widget.partnerId)
     params.put("appId", config.widget.appId)
