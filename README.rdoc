@@ -16,7 +16,7 @@ The sample application tests the following concepts when working with the Animot
 
 == Dependencies
 
-The Java web framework used was Groovy on Grails version 1.3.4. You can download it here:
+The Java web framework used was Groovy on Grails version 1.3.6. You can download it here:
 
 http://www.grails.org/Download
 
