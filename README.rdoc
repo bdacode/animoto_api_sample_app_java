@@ -37,11 +37,10 @@ You can try the application here:
 http://java-workflow-sample.animoto.com
 
 == Deployment
-After cloning the git repository:
+After cloning the git repository, the following command in the root of the repository will build the .war file:
     grails war
-will build the application .war file.
 
-Then, deploy to your serlet container/application server by replacing the old .war file.
+Then, deploy to your servlet container/application server by replacing the old .war file.
 
 == More Information
 
