@@ -30,7 +30,7 @@ class HomeController {
   /**
    * Homepage that renders a faux photo album gallery.
    */
-  def index = { 
+  def index = {
     return [images : config.images]
   }
 
@@ -39,14 +39,15 @@ class HomeController {
    */
   def widget = {
     def nonce = System.currentTimeMillis()
-    def unixTime = System.currentTimeMillis() / 1000L
-    def signature = Signature.generate(config.widget.partnerId, config.widget.partnerSecret, config.widget.appId, nonce.toString(), unixTime.toString())
+    def unixTime = (long)(System.currentTimeMillis() / 1000)
+    def signature = Signature.generate(config.widget.partnerId, config.widget.partnerSecret, config.widget.appId, nonce, unixTime)
     params.put("signature", signature)
     params.put("partnerId", config.widget.partnerId)
     params.put("appId", config.widget.appId)
     params.put("transactionToken", System.currentTimeMillis())
     params.put("nonce", nonce);
-     
+    params.put("timestamp", unixTime);
+
     return [
       host: config.widget.host,
       params: params
@@ -69,14 +70,14 @@ class HomeController {
     def renderingManifest = new RenderingManifest()
     def renderingParameters = new RenderingParameters()
     def storyboard = new Storyboard()
-  
+
     /**
      * Remember this is Groovy which auto will eventually auto resolve Java setters/getters on the API Client. :)
-     */ 
+     */
     storyboard.url = storyboardUrl
 
     renderingParameters.resolution = Resolution.R_720P
-    renderingParameters.framerate = Framerate.F_30 
+    renderingParameters.framerate = Framerate.F_30
     renderingParameters.format = Format.H264
 
     renderingManifest.storyboard = storyboard

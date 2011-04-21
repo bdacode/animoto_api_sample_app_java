@@ -102,4 +102,4 @@ widget.appId          = "46053ed4739ffc1aa0c5"
 
 platform.key          = "99320bd08867012dc34a12313b045877"
 platform.secret       = "867319c36489597437c6965fea6b1512d7ece403"
-api2.host             = "https://api2-sandbox.animoto.com"
+api2.host             = "https://platform-sandbox.animoto.com"

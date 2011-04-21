@@ -13,21 +13,21 @@ import java.math.BigInteger;
  */
 public class Signature {
 
-  public static String generate(String partnerId, String partnerSecret, String appId, String nonce, String unixTimestamp) 
+  public static String generate(String partnerId, String partnerSecret, String appId, long nonce, long unixTimestamp)
     throws NoSuchAlgorithmException {
     HashMap<String, String> args = new HashMap<String, String>();
     args.put("appId", appId);
-    args.put("nonce", nonce);
+    args.put("nonce", Long.toString(nonce));
     args.put("partnerId", partnerId);
     args.put("partnerSecret", partnerSecret);
-    args.put("timestamp", unixTimestamp);
+    args.put("timestamp", Long.toString(unixTimestamp));
     return generateHash(args);
   }
 
   /**
    * Generates an MD5 signature.
    */
-  private static String generateHash(HashMap<String, String> args) 
+  private static String generateHash(HashMap<String, String> args)
     throws NoSuchAlgorithmException {
     StringBuffer buf = new StringBuffer();
     String[] keys = (String[]) args.keySet().toArray(new String[args.size()]);
@@ -37,7 +37,7 @@ public class Signature {
 
     Arrays.sort(keys);
     for (int i = 0; i < keys.length; i++) {
-      buf.append("" + keys[i] + "=" + args.get(keys[i])); 
+      buf.append("" + keys[i] + "=" + args.get(keys[i]));
       if (i < keys.length - 1) {
         buf.append("&");
       }
