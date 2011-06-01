@@ -42,6 +42,17 @@ After cloning the git repository, the following command in the root of the repos
 
 Then, deploy to your servlet container/application server by replacing the old .war file.
 
+You will need to put the sandbox credentials that Animoto provided you into a configuration file (~/.grails/sundawgco-config.groovy).  Here is a sample:
+   // These are our Animoto credentials for the Workflow Widget and Platform API.
+   widget.partnerId      = "MY_WIDGET_ID"
+   widget.partnerSecret  = "MY_WIDGET_SECRET"
+   widget.host           = "https://widget-service-sandbox.animoto.com"
+   widget.appId          = "MY_WIDGET_APP_ID"
+
+   platform.key          = "MY_PLATFORM_KEY"
+   platform.secret       = "MY_PLATFORM_SECRET"
+   api2.host             = "https://platform-sandbox.animoto.com"
+
 == More Information
 
 * The Animoto API - http://api-documentation.animoto.com/index.html
